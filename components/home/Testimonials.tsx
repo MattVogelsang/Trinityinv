@@ -109,23 +109,24 @@ export default function Testimonials() {
 
         {/* Testimonial Card */}
         <div className="max-w-4xl mx-auto">
-          <div className="relative">
-            {/* Navigation Buttons */}
+          <div className="relative px-12 md:px-16">
+            {/* Navigation Buttons - Left Arrow */}
             <Button
               variant="ghost"
               size="lg"
               onClick={prev}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 md:-translate-x-16 z-20 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white border-0"
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
               aria-label="Previous testimonial"
             >
               <ChevronLeft className="w-6 h-6" />
             </Button>
             
+            {/* Navigation Buttons - Right Arrow */}
             <Button
               variant="ghost"
               size="lg"
               onClick={next}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 md:translate-x-16 z-20 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white border-0"
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
               aria-label="Next testimonial"
             >
               <ChevronRight className="w-6 h-6" />
