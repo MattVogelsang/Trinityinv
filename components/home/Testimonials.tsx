@@ -1,0 +1,197 @@
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronLeft, ChevronRight, Quote, Star } from 'lucide-react';
+import { Button } from "@/components/ui/button";
+import { base44, Testimonial } from '@/api/base44Client';
+
+// Fallback testimonials if API doesn't return any
+const fallbackTestimonials: (Testimonial & { id: number })[] = [
+  {
+    id: 1,
+    name: "Matt V",
+    location: "Coral Gables, FL",
+    quote: "I've been with this insurance company for years, and I couldn't be happier. They provide excellent coverage, and their customer service is top-notch!",
+    rating: 5
+  },
+  {
+    id: 2,
+    name: "Anna B",
+    location: "Miami, FL",
+    quote: "The experience I had was beyond 5 stars! Customer service was outstanding. Guido helped me with a business insurance policy. He was very personable and professional. I will definitely be referring this insurance agency for my friends and family.",
+    rating: 5
+  },
+  {
+    id: 3,
+    name: "Beatrice C",
+    location: "Miami, FL",
+    quote: "Since 2015 Trinity Insurance has been handling all our policies. The attention and responsibility is amazing. They attend our demands in record time and always looking to find us the best price in the market!!! 100% recommended, Guido is the best!!!",
+    rating: 5
+  },
+  {
+    id: 4,
+    name: "Maria H",
+    location: "San Francisco, CA",
+    quote: "The customer support team is outstanding. They are always friendly, helpful, and go the extra mile to ensure I have a positive experience with Trinity Insurance.",
+    rating: 5
+  },
+  {
+    id: 5,
+    name: "David W",
+    location: "New York, NY",
+    quote: "The peace of mind I get from knowing I'm covered by this insurance is priceless. The policies are comprehensive, and I feel secure knowing Trinity has my back.",
+    rating: 5
+  }
+];
+
+export default function Testimonials() {
+  const [testimonials, setTestimonials] = useState<(Testimonial & { id: number })[]>(fallbackTestimonials);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Fetch testimonials from API
+    const fetchTestimonials = async () => {
+      try {
+        const apiTestimonials = await base44.entities.Testimonial.list();
+        if (apiTestimonials && apiTestimonials.length > 0) {
+          // Add id field for React keys
+          const testimonialsWithId = apiTestimonials.map((testimonial, index) => ({
+            ...testimonial,
+            id: index + 1
+          }));
+          setTestimonials(testimonialsWithId);
+        }
+      } catch (error) {
+        console.error('Error fetching testimonials:', error);
+        // Keep fallback testimonials on error
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchTestimonials();
+  }, []);
+
+  const next = () => {
+    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const prev = () => {
+    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
+  return (
+    <section className="py-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-amber-500 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500 rounded-full blur-3xl" />
+      </div>
+
+      <div className="container mx-auto px-6 lg:px-12 relative z-10">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
+          <span className="text-amber-400 font-semibold text-sm uppercase tracking-wider">Testimonials</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mt-3 mb-4">
+            What Our Clients Say
+          </h2>
+          <p className="text-slate-400 text-lg">
+            Don't just take our word for it — hear from our satisfied customers
+          </p>
+        </motion.div>
+
+        {/* Testimonial Card */}
+        <div className="max-w-4xl mx-auto">
+          <div className="relative">
+            {/* Navigation Buttons */}
+            <Button
+              variant="ghost"
+              size="lg"
+              onClick={prev}
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 md:-translate-x-16 z-20 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white border-0"
+              aria-label="Previous testimonial"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </Button>
+            
+            <Button
+              variant="ghost"
+              size="lg"
+              onClick={next}
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 md:translate-x-16 z-20 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white border-0"
+              aria-label="Next testimonial"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </Button>
+
+            {/* Testimonial Content */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentIndex}
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -50 }}
+                transition={{ duration: 0.3 }}
+                className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-white/10"
+              >
+                {/* Quote Icon */}
+                <div className="flex justify-center mb-6">
+                  <div className="w-16 h-16 rounded-full bg-amber-500/20 flex items-center justify-center">
+                    <Quote className="w-8 h-8 text-amber-400" />
+                  </div>
+                </div>
+
+                {/* Rating Stars */}
+                <div className="flex justify-center gap-1 mb-6">
+                  {[...Array(testimonials[currentIndex].rating || 5)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
+                  ))}
+                </div>
+
+                {/* Quote Text */}
+                <p className="text-lg md:text-xl text-slate-200 text-center leading-relaxed mb-8 italic">
+                  "{testimonials[currentIndex].quote}"
+                </p>
+
+                {/* Author Info */}
+                <div className="text-center">
+                  <h4 className="text-xl font-bold text-white mb-1">
+                    {testimonials[currentIndex].name}
+                  </h4>
+                  {testimonials[currentIndex].location && (
+                    <p className="text-slate-400">
+                      {testimonials[currentIndex].location}
+                    </p>
+                  )}
+                </div>
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Dots Indicator */}
+            <div className="flex justify-center gap-2 mt-8">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentIndex(index)}
+                  className={`w-2 h-2 rounded-full transition-all ${
+                    index === currentIndex
+                      ? 'bg-amber-400 w-8'
+                      : 'bg-white/30 hover:bg-white/50'
+                  }`}
+                  aria-label={`Go to testimonial ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

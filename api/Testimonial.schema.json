@@ -1,0 +1,33 @@
+{
+  "name": "Testimonial",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Customer name"
+    },
+    "location": {
+      "type": "string",
+      "description": "Customer location"
+    },
+    "quote": {
+      "type": "string",
+      "description": "Testimonial text"
+    },
+    "rating": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 5,
+      "default": 5
+    },
+    "avatar_url": {
+      "type": "string",
+      "description": "Avatar image URL"
+    }
+  },
+  "required": [
+    "name",
+    "quote"
+  ]
+}
+
