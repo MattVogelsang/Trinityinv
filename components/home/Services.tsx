@@ -125,7 +125,16 @@ export default function Services({ onServiceClick }: ServicesProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group relative bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-slate-300 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col"
+                className="group relative bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-slate-300 hover:shadow-2xl transition-all duration-300 flex flex-col"
+                whileHover={{ 
+                  y: -8,
+                  rotateX: 2,
+                  rotateY: 2,
+                }}
+                style={{ 
+                  transformStyle: 'preserve-3d',
+                  perspective: '1000px'
+                }}
               >
                 {/* Featured Image */}
                 <div className="relative h-48 w-full overflow-hidden">
@@ -168,13 +177,18 @@ export default function Services({ onServiceClick }: ServicesProps) {
                   </ul>
 
                   {/* CTA Button */}
-                  <button
+                  <motion.button
                     onClick={onServiceClick}
-                    className={`w-full mt-auto flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-gradient-to-r ${service.color} text-white font-medium hover:shadow-lg transition-all duration-300 group-hover:gap-3 group/btn`}
+                    className={`w-full mt-auto flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-gradient-to-r ${service.color} text-white font-medium transition-all duration-300 group-hover:gap-3 group/btn`}
+                    whileHover={{ 
+                      scale: 1.02,
+                      boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.2)'
+                    }}
+                    whileTap={{ scale: 0.98 }}
                   >
                     <span>Get Quote</span>
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
-                  </button>
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-2" />
+                  </motion.button>
                 </div>
               </motion.div>
             );
@@ -192,13 +206,19 @@ export default function Services({ onServiceClick }: ServicesProps) {
           <p className="text-slate-600 mb-6">
             Don't see what you're looking for? We can help find the right coverage for your needs.
           </p>
-          <button
+          <motion.button
             onClick={onServiceClick}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-slate-900 text-white font-medium hover:bg-slate-800 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-slate-900 text-white font-medium transition-all duration-300 group/btn"
+            whileHover={{ 
+              scale: 1.05,
+              backgroundColor: '#1e293b',
+              boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.3)'
+            }}
+            whileTap={{ scale: 0.95 }}
           >
-            Contact Us Today
-            <ArrowRight className="w-4 h-4" />
-          </button>
+            <span>Contact Us Today</span>
+            <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-2" />
+          </motion.button>
         </motion.div>
       </div>
     </section>

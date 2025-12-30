@@ -11,7 +11,7 @@ interface HeroProps {
 
 export default function Hero({ onGetQuote }: HeroProps) {
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+    <section className="relative min-h-[90vh] flex items-center overflow-hidden" id="home">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center"
@@ -70,14 +70,19 @@ export default function Hero({ onGetQuote }: HeroProps) {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-12 justify-center">
-              <Button 
-                onClick={onGetQuote}
-                size="lg" 
-                className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold px-8 py-6 text-lg rounded-xl shadow-lg shadow-blue-500/25 transition-all hover:shadow-xl hover:shadow-blue-500/30"
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                Get a Free Quote
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
+                <Button 
+                  onClick={onGetQuote}
+                  size="lg" 
+                  className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold px-8 py-6 text-lg rounded-xl shadow-lg shadow-blue-500/25 transition-all hover:shadow-xl hover:shadow-blue-500/30 group/btn"
+                >
+                  Get a Free Quote
+                  <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover/btn:translate-x-2" />
+                </Button>
+              </motion.div>
               <Button 
                 variant="outline" 
                 size="lg"

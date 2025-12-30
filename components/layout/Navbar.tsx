@@ -6,10 +6,10 @@ import { Button } from "@/components/ui/button";
 import { Shield, Menu, X, Phone } from 'lucide-react';
 
 const navLinks = [
-  { label: 'Home', href: '#' },
-  { label: 'Services', href: '#services' },
-  { label: 'About', href: '#about' },
-  { label: 'Contact', href: '#contact' }
+  { label: 'Home', href: '#', id: 'home' },
+  { label: 'Services', href: '#services', id: 'services' },
+  { label: 'About', href: '#about', id: 'about' },
+  { label: 'Contact', href: '#contact', id: 'contact' }
 ];
 
 interface NavbarProps {
@@ -19,12 +19,30 @@ interface NavbarProps {
 export default function Navbar({ onGetQuote }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+      
+      // Determine active section based on scroll position
+      const sections = ['home', 'services', 'about', 'contact'];
+      const scrollPosition = window.scrollY + 100;
+
+      for (const section of sections.reverse()) {
+        const element = document.getElementById(section === 'home' ? '' : section);
+        if (element) {
+          const offsetTop = element.offsetTop;
+          if (scrollPosition >= offsetTop) {
+            setActiveSection(section === '' ? 'home' : section);
+            break;
+          }
+        }
+      }
     };
+
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial call
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -55,20 +73,29 @@ export default function Navbar({ onGetQuote }: NavbarProps) {
 
             {/* Desktop Nav */}
             <nav className="hidden lg:flex items-center gap-8">
-              {navLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className={`font-medium transition-all duration-300 relative group ${
-                    isScrolled 
-                      ? 'text-slate-600 hover:text-slate-900' 
-                      : 'text-slate-300 hover:text-white'
-                  }`}
-                >
-                  {link.label}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full" />
-                </a>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = activeSection === link.id;
+                return (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    className={`font-medium transition-all duration-300 relative group ${
+                      isScrolled 
+                        ? isActive 
+                          ? 'text-blue-600' 
+                          : 'text-slate-600 hover:text-slate-900'
+                        : isActive
+                          ? 'text-blue-400'
+                          : 'text-slate-300 hover:text-white'
+                    }`}
+                  >
+                    {link.label}
+                    <span className={`absolute bottom-0 left-0 h-0.5 bg-blue-600 transition-all duration-300 ${
+                      isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                    }`} />
+                  </a>
+                );
+              })}
             </nav>
 
             {/* Desktop CTA */}
