@@ -1,52 +1,12 @@
 // Base44 API Client
 // TODO: Configure with your actual Base44 API credentials
 
-export type InsuranceType = 
-  | 'commercial' 
-  | 'marine' 
-  | 'hotel_motel' 
-  | 'condo' 
-  | 'homeowners' 
-  | 'other';
-
-export type QuoteRequestStatus = 
-  | 'new' 
-  | 'contacted' 
-  | 'quoted' 
-  | 'closed';
-
-export interface QuoteRequest {
-  name: string;
-  email: string;
-  phone?: string;
-  insurance_type?: InsuranceType;
-  message?: string;
-  status?: QuoteRequestStatus;
-}
-
-export interface CreateQuoteRequestInput {
-  name: string;
-  email: string;
-  phone?: string;
-  insurance_type?: InsuranceType;
-  message?: string;
-}
-
-export interface Testimonial {
-  name: string;
-  location?: string;
-  quote: string;
-  rating?: number;
-  avatar_url?: string;
-}
-
-export interface CreateTestimonialInput {
-  name: string;
-  location?: string;
-  quote: string;
-  rating?: number;
-  avatar_url?: string;
-}
+import type {
+  QuoteRequest,
+  CreateQuoteRequestInput,
+  Testimonial,
+  CreateTestimonialInput
+} from '@/types/api';
 
 class Base44Client {
   entities = {
@@ -56,14 +16,9 @@ class Base44Client {
         console.log('Creating quote request:', data);
         
         // Simulate API call
-        return new Promise((resolve) => {
-          setTimeout(() => {
-            const quoteRequest: QuoteRequest = {
-              ...data,
-              status: 'new'
-            };
-            resolve(quoteRequest);
-          }, 1000);
+        return Promise.resolve({
+          ...data,
+          status: 'new'
         });
       }
     },
@@ -73,27 +28,18 @@ class Base44Client {
         console.log('Creating testimonial:', data);
         
         // Simulate API call
-        return new Promise((resolve) => {
-          setTimeout(() => {
-            const testimonial: Testimonial = {
-              ...data,
-              rating: data.rating ?? 5
-            };
-            resolve(testimonial);
-          }, 1000);
+        return Promise.resolve({
+          ...data,
+          rating: data.rating ?? 5
         });
       },
       list: async (): Promise<Testimonial[]> => {
         // TODO: Replace with actual Base44 API call
         console.log('Fetching testimonials');
         
-        // Simulate API call
-        return new Promise((resolve) => {
-          setTimeout(() => {
-            // Return empty array - real implementation would fetch from API
-            resolve([]);
-          }, 500);
-        });
+        // Simulate API call - return empty array
+        // Real implementation would fetch from Base44 API
+        return Promise.resolve([]);
       }
     }
   };

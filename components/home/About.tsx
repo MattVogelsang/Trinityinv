@@ -3,6 +3,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Shield, Users, Award, TrendingDown } from 'lucide-react';
+import { fadeInLeft, fadeInRight, scaleIn } from '@/lib/animations';
+import { images } from '@/constants/images';
 
 const stats = [
   { label: 'Years Experience', value: '50+', icon: Award },
@@ -18,8 +20,7 @@ export default function About() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left - Image/Visual */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            {...fadeInLeft}
             viewport={{ once: true }}
             className="relative"
           >
@@ -27,7 +28,7 @@ export default function About() {
               {/* Main Image */}
               <div className="rounded-2xl overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1560472355-536de3962603?w=800&auto=format&fit=crop&q=80" 
+                  src={images.about}
                   alt="Professional team meeting"
                   className="w-full h-[500px] object-cover"
                 />
@@ -35,8 +36,7 @@ export default function About() {
 
               {/* Floating Card */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                {...scaleIn}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 }}
                 className="absolute -bottom-8 -right-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl p-6 shadow-xl shadow-blue-500/30"
@@ -54,8 +54,7 @@ export default function About() {
 
           {/* Right - Content */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            {...fadeInRight}
             viewport={{ once: true }}
           >
             <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">About Us</span>

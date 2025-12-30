@@ -3,6 +3,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { HardHat, Shield, CheckCircle } from 'lucide-react';
+import { fadeInLeft, fadeInRight, scaleIn } from '@/lib/animations';
+import { images } from '@/constants/images';
 
 export default function BuildersRisk() {
   return (
@@ -11,8 +13,7 @@ export default function BuildersRisk() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            {...fadeInLeft}
             viewport={{ once: true }}
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 text-blue-700 text-sm font-medium mb-6">
@@ -52,14 +53,13 @@ export default function BuildersRisk() {
 
           {/* Image */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            {...fadeInRight}
             viewport={{ once: true }}
             className="relative"
           >
             <div className="rounded-2xl overflow-hidden">
               <img 
-                src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&auto=format&fit=crop&q=80"
+                src={images.buildersRisk}
                 alt="Construction site"
                 className="w-full h-[400px] object-cover"
               />
@@ -67,8 +67,7 @@ export default function BuildersRisk() {
             
             {/* Floating Badge */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              {...scaleIn}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
               className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-5 shadow-xl border border-slate-100"

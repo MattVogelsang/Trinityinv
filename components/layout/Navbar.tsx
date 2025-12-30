@@ -3,15 +3,11 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from "@/components/ui/button";
-import { Shield, Menu, X, Phone } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
 import { siteConfig } from '@/lib/config';
-
-const navLinks = [
-  { label: 'Home', href: '#', id: 'home' },
-  { label: 'Services', href: '#services', id: 'services' },
-  { label: 'About', href: '#about', id: 'about' },
-  { label: 'Contact', href: '#contact', id: 'contact' }
-];
+import { navLinks } from '@/constants/navigation';
+import { getActiveSection } from '@/lib/scroll';
+import { images } from '@/constants/images';
 
 interface NavbarProps {
   onGetQuote: () => void;
@@ -25,25 +21,11 @@ export default function Navbar({ onGetQuote }: NavbarProps) {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
-      
-      // Determine active section based on scroll position
-      const sections = ['home', 'services', 'about', 'contact'];
-      const scrollPosition = window.scrollY + 100;
-
-      for (const section of sections.reverse()) {
-        const element = document.getElementById(section === 'home' ? '' : section);
-        if (element) {
-          const offsetTop = element.offsetTop;
-          if (scrollPosition >= offsetTop) {
-            setActiveSection(section === '' ? 'home' : section);
-            break;
-          }
-        }
-      }
+      setActiveSection(getActiveSection(['home', 'services', 'about', 'contact']));
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial call
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -63,7 +45,7 @@ export default function Navbar({ onGetQuote }: NavbarProps) {
             {/* Logo */}
             <a href="#" className="flex items-center gap-3">
               <img 
-                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6952fe2c6d8839751d52272c/e73638880_TILogo.png" 
+                src={images.logo}
                 alt="Trinity Insurance Logo"
                 className="w-10 h-10 object-contain"
               />

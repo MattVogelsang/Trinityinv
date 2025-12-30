@@ -2,19 +2,18 @@
 
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { getScrollProgress } from '@/lib/scroll';
 
 export default function ScrollProgress() {
   const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const updateScrollProgress = () => {
-      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const scrolled = (window.scrollY / scrollHeight) * 100;
-      setScrollProgress(scrolled);
+      setScrollProgress(getScrollProgress());
     };
 
     window.addEventListener('scroll', updateScrollProgress);
-    updateScrollProgress(); // Initial call
+    updateScrollProgress();
 
     return () => window.removeEventListener('scroll', updateScrollProgress);
   }, []);

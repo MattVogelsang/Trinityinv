@@ -1,6 +1,7 @@
 import React from 'react';
-import { Shield, Phone, Mail, MapPin } from 'lucide-react';
+import { Phone, Mail, MapPin } from 'lucide-react';
 import { siteConfig, getFullAddress } from '@/lib/config';
+import { images } from '@/constants/images';
 
 export default function Footer() {
   return (
@@ -11,7 +12,7 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-4">
               <img 
-                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6952fe2c6d8839751d52272c/e73638880_TILogo.png" 
+                src={images.logo}
                 alt="Trinity Insurance Logo"
                 className="w-10 h-10 object-contain"
               />

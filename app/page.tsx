@@ -11,6 +11,7 @@ import ContactForm from '@/components/home/ContactForm';
 import Footer from '@/components/layout/Footer';
 import ScrollProgress from '@/components/ui/ScrollProgress';
 import BackToTop from '@/components/ui/BackToTop';
+import { scrollToSection } from '@/lib/scroll';
 
 export default function Home() {
   const contactRef = useRef<HTMLDivElement>(null);

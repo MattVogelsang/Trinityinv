@@ -5,6 +5,8 @@ import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import { Shield, ArrowRight, Phone } from 'lucide-react';
 import { siteConfig } from '@/lib/config';
+import { images } from '@/constants/images';
+import { scaleIn, fadeInUp } from '@/lib/animations';
 
 interface HeroProps {
   onGetQuote: () => void;
@@ -16,9 +18,7 @@ export default function Hero({ onGetQuote }: HeroProps) {
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: `url("https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6952fe2c6d8839751d52272c/b25d04e76_image.png")`
-        }}
+        style={{ backgroundImage: `url("${images.heroBackground}")` }}
       />
       
       {/* Dark Overlay */}
@@ -28,28 +28,25 @@ export default function Hero({ onGetQuote }: HeroProps) {
         <div className="flex flex-col items-center text-center">
           {/* Logo */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
+            {...scaleIn}
             transition={{ duration: 0.8 }}
             className="mb-8"
           >
             <img 
-              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6952fe2c6d8839751d52272c/e73638880_TILogo.png" 
+              src={images.logo}
               alt="Trinity Insurance Logo"
               className="w-32 h-32 md:w-40 md:h-40 object-contain mx-auto drop-shadow-2xl"
             />
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            {...fadeInUp}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="max-w-5xl"
           >
             {/* Badge */}
             <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
+              {...scaleIn}
               transition={{ delay: 0.3 }}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-sky-400 text-sm font-medium mb-6"
             >

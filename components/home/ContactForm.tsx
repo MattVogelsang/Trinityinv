@@ -22,15 +22,7 @@ import {
   Loader2
 } from 'lucide-react';
 import { siteConfig, getFullAddress } from '@/lib/config';
-
-const insuranceTypes = [
-  { value: 'commercial', label: 'Commercial Insurance' },
-  { value: 'marine', label: 'Marine Contractors' },
-  { value: 'hotel_motel', label: 'Hotel/Motel Programs' },
-  { value: 'condo', label: 'Condo Associations' },
-  { value: 'homeowners', label: 'Homeowners Insurance' },
-  { value: 'other', label: 'Other' }
-];
+import { insuranceTypes } from '@/constants/insuranceTypes';
 
 interface ContactFormData {
   name: string;
@@ -56,7 +48,6 @@ export default function ContactForm() {
     setIsSubmitting(true);
     
     try {
-      // Filter out empty strings and convert to undefined for optional fields
       const submitData = {
         name: formData.name,
         email: formData.email,
@@ -65,26 +56,21 @@ export default function ContactForm() {
         ...(formData.message && { message: formData.message })
       };
       
-      // Send email via API route
       const response = await fetch('/api/contact', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(submitData),
       });
 
-      if (!response.ok) {
-        throw new Error('Failed to send message');
-      }
+      if (!response.ok) throw new Error('Failed to send message');
       
-      setIsSubmitting(false);
       setIsSubmitted(true);
       setFormData({ name: '', email: '', phone: '', insurance_type: undefined, message: '' });
     } catch (error) {
       console.error('Error submitting form:', error);
-      setIsSubmitting(false);
       alert('There was an error sending your message. Please try again or call us directly.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
