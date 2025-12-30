@@ -13,7 +13,7 @@ import ScrollProgress from '@/components/ui/ScrollProgress';
 import BackToTop from '@/components/ui/BackToTop';
 
 export default function Home() {
-  const contactRef = useRef(null);
+  const contactRef = useRef<HTMLDivElement>(null);
 
   const scrollToContact = () => {
     contactRef.current?.scrollIntoView({ behavior: 'smooth' });

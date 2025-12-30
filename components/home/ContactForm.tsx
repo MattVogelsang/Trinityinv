@@ -21,7 +21,6 @@ import {
   CheckCircle,
   Loader2
 } from 'lucide-react';
-import { base44, CreateQuoteRequestInput } from '@/api/base44Client';
 
 const insuranceTypes = [
   { value: 'commercial', label: 'Commercial Insurance' },
@@ -32,8 +31,16 @@ const insuranceTypes = [
   { value: 'other', label: 'Other' }
 ];
 
+interface ContactFormData {
+  name: string;
+  email: string;
+  phone?: string;
+  insurance_type?: string;
+  message?: string;
+}
+
 export default function ContactForm() {
-  const [formData, setFormData] = useState<CreateQuoteRequestInput>({
+  const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
     phone: '',
@@ -49,7 +56,7 @@ export default function ContactForm() {
     
     try {
       // Filter out empty strings and convert to undefined for optional fields
-      const submitData: CreateQuoteRequestInput = {
+      const submitData = {
         name: formData.name,
         email: formData.email,
         ...(formData.phone && { phone: formData.phone }),
@@ -57,7 +64,18 @@ export default function ContactForm() {
         ...(formData.message && { message: formData.message })
       };
       
-      await base44.entities.QuoteRequest.create(submitData);
+      // Send email via API route
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(submitData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
       
       setIsSubmitting(false);
       setIsSubmitted(true);
@@ -65,7 +83,7 @@ export default function ContactForm() {
     } catch (error) {
       console.error('Error submitting form:', error);
       setIsSubmitting(false);
-      // TODO: Show error message to user
+      alert('There was an error sending your message. Please try again or call us directly.');
     }
   };
 
