@@ -59,13 +59,14 @@ export default function Navbar({ onGetQuote }: NavbarProps) {
                 <a
                   key={link.label}
                   href={link.href}
-                  className={`font-medium transition-colors ${
+                  className={`font-medium transition-all duration-300 relative group ${
                     isScrolled 
                       ? 'text-slate-600 hover:text-slate-900' 
                       : 'text-slate-300 hover:text-white'
                   }`}
                 >
                   {link.label}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full" />
                 </a>
               ))}
             </nav>

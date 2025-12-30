@@ -59,10 +59,10 @@ export default function About() {
             viewport={{ once: true }}
           >
             <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">About Us</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-3 mb-6">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 leading-tight mt-3">
               Your Trusted Independent Insurance Partner Since 1974
             </h2>
-            <div className="space-y-4 text-slate-600 text-lg leading-relaxed mb-8">
+            <div className="space-y-4 text-slate-600 text-lg md:text-xl leading-relaxed mb-8">
               <p>
                 Trinity Insurance's staff has over 50 years of experience to "work for you" — 
                 lowering your insurance costs and improving your bottom line.

@@ -18,7 +18,6 @@ import {
   MapPin, 
   Phone, 
   Mail, 
-  Clock,
   CheckCircle,
   Loader2
 } from 'lucide-react';
@@ -97,7 +96,7 @@ export default function ContactForm() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-slate-900 mb-1">Our Office</h4>
-                  <p className="text-slate-600">Location details will go here</p>
+                  <p className="text-slate-600">4429 Hollywood Blvd #3637<br />Hollywood, FL 33021</p>
                 </div>
               </div>
 
@@ -107,7 +106,10 @@ export default function ContactForm() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-slate-900 mb-1">Phone</h4>
-                  <p className="text-slate-600">Phone number will go here</p>
+                  <div className="text-slate-600 space-y-1">
+                    <div>Dade: <a href="tel:305-874-6489" className="text-blue-600 hover:underline">305 874-6489</a></div>
+                    <div>Broward: <a href="tel:954-613-3601" className="text-blue-600 hover:underline">954 613-3601</a></div>
+                  </div>
                 </div>
               </div>
 
@@ -117,19 +119,10 @@ export default function ContactForm() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-slate-900 mb-1">Email</h4>
-                  <p className="text-slate-600">Email address will go here</p>
+                  <a href="mailto:tguido@trinityinv.net" className="text-slate-600 text-blue-600 hover:underline">tguido@trinityinv.net</a>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center flex-shrink-0">
-                  <Clock className="w-6 h-6 text-blue-600" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-slate-900 mb-1">Business Hours</h4>
-                  <p className="text-slate-600">Business hours will go here</p>
-                </div>
-              </div>
             </div>
           </motion.div>
 

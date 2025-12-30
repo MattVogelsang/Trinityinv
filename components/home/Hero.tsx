@@ -43,20 +43,20 @@ export default function Hero({ onGetQuote }: HeroProps) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="max-w-4xl"
+            className="max-w-5xl"
           >
             {/* Badge */}
             <motion.div 
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2 }}
+              transition={{ delay: 0.3 }}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-sky-400 text-sm font-medium mb-6"
             >
               <Shield className="w-4 h-4" />
               50+ Years of Trusted Service
             </motion.div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6 tracking-tight">
               Protect What
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-600">
                 Matters Most
@@ -81,7 +81,7 @@ export default function Hero({ onGetQuote }: HeroProps) {
               <Button 
                 variant="outline" 
                 size="lg"
-                className="border-slate-600 text-white hover:bg-slate-800 px-8 py-6 text-lg rounded-xl"
+                className="border-white/50 bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-slate-900 px-8 py-6 text-lg rounded-xl transition-all duration-300"
                 onClick={() => window.location.href = 'tel:305-874-6489'}
               >
                 <Phone className="mr-2 w-5 h-5" />

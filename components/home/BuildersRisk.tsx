@@ -20,17 +20,17 @@ export default function BuildersRisk() {
               Builders & Contractors
             </div>
 
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 leading-tight">
               Builders Risk Policies
             </h2>
             
-            <p className="text-slate-600 text-lg leading-relaxed mb-6">
+            <p className="text-slate-600 text-lg md:text-xl leading-relaxed mb-6">
               As a builder or contractor, it's in your best interest to ensure builders risk 
               coverage is in place. There are advantages to obtaining your own policy instead 
               of relying on the project owner to secure coverage.
             </p>
 
-            <p className="text-slate-600 text-lg leading-relaxed mb-8">
+            <p className="text-slate-600 text-lg md:text-xl leading-relaxed mb-8">
               Builders risk protects you against unforeseen events which may have a financial 
               impact on your project and company.
             </p>

@@ -54,12 +54,17 @@ export default function Footer() {
                 <MapPin className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
                 <span>4429 Hollywood Blvd #3637<br />Hollywood, FL 33021</span>
               </li>
-              <li className="flex items-center gap-2">
-                <Phone className="w-5 h-5 text-amber-500 flex-shrink-0" />
-                <div>
-                  <a href="tel:305-874-6489" className="hover:text-amber-400">305-874-6489</a>
-                  <span className="mx-1">/</span>
-                  <a href="tel:954-613-3601" className="hover:text-amber-400">954-613-3601</a>
+              <li className="flex items-start gap-2">
+                <Phone className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
+                <div className="flex flex-col gap-1">
+                  <div>
+                    <span className="text-amber-500 font-medium">Dade:</span>{' '}
+                    <a href="tel:305-874-6489" className="hover:text-amber-400">305 874-6489</a>
+                  </div>
+                  <div>
+                    <span className="text-amber-500 font-medium">Broward:</span>{' '}
+                    <a href="tel:954-613-3601" className="hover:text-amber-400">954 613-3601</a>
+                  </div>
                 </div>
               </li>
               <li className="flex items-center gap-2">
