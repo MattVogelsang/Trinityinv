@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import { Shield, Menu, X, Phone } from 'lucide-react';
+import { siteConfig } from '@/lib/config';
 
 const navLinks = [
   { label: 'Home', href: '#', id: 'home' },
@@ -101,13 +102,13 @@ export default function Navbar({ onGetQuote }: NavbarProps) {
             {/* Desktop CTA */}
             <div className="hidden lg:flex items-center gap-4">
               <a 
-                href="tel:305-874-6489"
+                href={`tel:${siteConfig.contact.phone.dade}`}
                 className={`flex items-center gap-2 font-medium ${
                   isScrolled ? 'text-slate-600' : 'text-slate-300'
                 }`}
               >
                 <Phone className="w-4 h-4" />
-                305-874-6489
+                {siteConfig.contact.phone.dade}
               </a>
               <Button 
                 onClick={onGetQuote}
@@ -170,12 +171,12 @@ export default function Navbar({ onGetQuote }: NavbarProps) {
                 {/* Mobile Contact */}
                 <div className="pt-6 border-t border-slate-200 space-y-4">
                   <a 
-                    href="tel:305-874-6489"
+                    href={`tel:${siteConfig.contact.phone.dade}`}
                     onClick={() => setIsMobileOpen(false)}
                     className="flex items-center gap-2 text-slate-900 font-medium"
                   >
                     <Phone className="w-5 h-5 text-blue-600" />
-                    305-874-6489
+                    {siteConfig.contact.phone.dade}
                   </a>
                   <Button 
                     onClick={() => {

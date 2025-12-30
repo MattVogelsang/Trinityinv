@@ -1,5 +1,6 @@
 import React from 'react';
 import { Shield, Phone, Mail, MapPin } from 'lucide-react';
+import { siteConfig, getFullAddress } from '@/lib/config';
 
 export default function Footer() {
   return (
@@ -52,24 +53,30 @@ export default function Footer() {
             <ul className="space-y-3 text-slate-400">
               <li className="flex items-start gap-2">
                 <MapPin className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
-                <span>4429 Hollywood Blvd #3637<br />Hollywood, FL 33021</span>
+                <span className="whitespace-pre-line">{getFullAddress()}</span>
               </li>
               <li className="flex items-start gap-2">
                 <Phone className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
                 <div className="flex flex-col gap-1">
                   <div>
                     <span className="text-amber-500 font-medium">Dade:</span>{' '}
-                    <a href="tel:305-874-6489" className="hover:text-amber-400">305 874-6489</a>
+                    <a href={`tel:${siteConfig.contact.phone.dade}`} className="hover:text-amber-400">
+                      {siteConfig.contact.phone.dade}
+                    </a>
                   </div>
                   <div>
                     <span className="text-amber-500 font-medium">Broward:</span>{' '}
-                    <a href="tel:954-613-3601" className="hover:text-amber-400">954 613-3601</a>
+                    <a href={`tel:${siteConfig.contact.phone.broward}`} className="hover:text-amber-400">
+                      {siteConfig.contact.phone.broward}
+                    </a>
                   </div>
                 </div>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-5 h-5 text-amber-500 flex-shrink-0" />
-                <a href="mailto:tguido@trinityinv.net" className="hover:text-amber-400">tguido@trinityinv.net</a>
+                <a href={`mailto:${siteConfig.contact.email}`} className="hover:text-amber-400">
+                  {siteConfig.contact.email}
+                </a>
               </li>
             </ul>
           </div>

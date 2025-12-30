@@ -4,6 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import { Shield, ArrowRight, Phone } from 'lucide-react';
+import { siteConfig } from '@/lib/config';
 
 interface HeroProps {
   onGetQuote: () => void;
@@ -87,10 +88,10 @@ export default function Hero({ onGetQuote }: HeroProps) {
                 variant="outline" 
                 size="lg"
                 className="border-white/50 bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-slate-900 px-8 py-6 text-lg rounded-xl transition-all duration-300"
-                onClick={() => window.location.href = 'tel:305-874-6489'}
+                onClick={() => window.location.href = `tel:${siteConfig.contact.phone.dade}`}
               >
                 <Phone className="mr-2 w-5 h-5" />
-                (305) 874-6489
+                {siteConfig.contact.phone.dade}
               </Button>
             </div>
           </motion.div>

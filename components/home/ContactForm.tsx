@@ -21,6 +21,7 @@ import {
   CheckCircle,
   Loader2
 } from 'lucide-react';
+import { siteConfig, getFullAddress } from '@/lib/config';
 
 const insuranceTypes = [
   { value: 'commercial', label: 'Commercial Insurance' },
@@ -114,7 +115,7 @@ export default function ContactForm() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-slate-900 mb-1">Our Office</h4>
-                  <p className="text-slate-600">4429 Hollywood Blvd #3637<br />Hollywood, FL 33021</p>
+                  <p className="text-slate-600 whitespace-pre-line">{getFullAddress()}</p>
                 </div>
               </div>
 
@@ -125,8 +126,16 @@ export default function ContactForm() {
                 <div>
                   <h4 className="font-semibold text-slate-900 mb-1">Phone</h4>
                   <div className="text-slate-600 space-y-1">
-                    <div>Dade: <a href="tel:305-874-6489" className="text-blue-600 hover:underline">305 874-6489</a></div>
-                    <div>Broward: <a href="tel:954-613-3601" className="text-blue-600 hover:underline">954 613-3601</a></div>
+                    <div>
+                      Dade: <a href={`tel:${siteConfig.contact.phone.dade}`} className="text-blue-600 hover:underline">
+                        {siteConfig.contact.phone.dade}
+                      </a>
+                    </div>
+                    <div>
+                      Broward: <a href={`tel:${siteConfig.contact.phone.broward}`} className="text-blue-600 hover:underline">
+                        {siteConfig.contact.phone.broward}
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -137,7 +146,9 @@ export default function ContactForm() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-slate-900 mb-1">Email</h4>
-                  <a href="mailto:tguido@trinityinv.net" className="text-slate-600 text-blue-600 hover:underline">tguido@trinityinv.net</a>
+                  <a href={`mailto:${siteConfig.contact.email}`} className="text-slate-600 text-blue-600 hover:underline">
+                    {siteConfig.contact.email}
+                  </a>
                 </div>
               </div>
 
