@@ -109,28 +109,24 @@ export default function Testimonials() {
 
         {/* Testimonial Card */}
         <div className="max-w-4xl mx-auto">
-          <div className="relative px-12 md:px-16">
+          <div className="relative px-16 md:px-20">
             {/* Navigation Buttons - Left Arrow */}
-            <Button
-              variant="ghost"
-              size="lg"
+            <button
               onClick={prev}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-30 w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white border-2 border-white/30 hover:border-white/50 shadow-2xl hover:shadow-white/20 transition-all duration-300 hover:scale-110 flex items-center justify-center group"
               aria-label="Previous testimonial"
             >
-              <ChevronLeft className="w-6 h-6" />
-            </Button>
+              <ChevronLeft className="w-7 h-7 md:w-8 md:h-8 group-hover:scale-110 transition-transform" />
+            </button>
             
             {/* Navigation Buttons - Right Arrow */}
-            <Button
-              variant="ghost"
-              size="lg"
+            <button
               onClick={next}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-30 w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white border-2 border-white/30 hover:border-white/50 shadow-2xl hover:shadow-white/20 transition-all duration-300 hover:scale-110 flex items-center justify-center group"
               aria-label="Next testimonial"
             >
-              <ChevronRight className="w-6 h-6" />
-            </Button>
+              <ChevronRight className="w-7 h-7 md:w-8 md:h-8 group-hover:scale-110 transition-transform" />
+            </button>
 
             {/* Testimonial Content */}
             <AnimatePresence mode="wait">
