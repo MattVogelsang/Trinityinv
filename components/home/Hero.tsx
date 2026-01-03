@@ -15,18 +15,15 @@ interface HeroProps {
 export default function Hero({ onGetQuote }: HeroProps) {
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden" id="home">
-      {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url("${images.heroBackground}")` }}
       />
       
-      {/* Dark Overlay */}
       <div className="absolute inset-0 bg-slate-900/75" />
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <div className="flex flex-col items-center text-center">
-          {/* Logo */}
           <motion.div
             {...scaleIn}
             transition={{ duration: 0.8 }}
@@ -44,7 +41,6 @@ export default function Hero({ onGetQuote }: HeroProps) {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="max-w-5xl"
           >
-            {/* Badge */}
             <motion.div 
               {...scaleIn}
               transition={{ delay: 0.3 }}

@@ -8,6 +8,11 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontSize: {
+        '12xl': '7.5rem',
+        '15xl': '9.375rem',
+        '18xl': '11.25rem',
+      },
       typography: {
         'display': {
           fontSize: '4.5rem',

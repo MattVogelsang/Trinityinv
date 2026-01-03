@@ -1,5 +1,3 @@
-// Scroll utility functions
-
 export const scrollToSection = (sectionId: string) => {
   const element = document.getElementById(sectionId);
   if (element) {

@@ -11,7 +11,6 @@ export default function BuildersRisk() {
     <section className="py-24 bg-slate-50">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Content */}
           <motion.div
             {...fadeInLeft}
             viewport={{ once: true }}
@@ -51,7 +50,6 @@ export default function BuildersRisk() {
             </div>
           </motion.div>
 
-          {/* Image */}
           <motion.div
             {...fadeInRight}
             viewport={{ once: true }}
@@ -65,7 +63,6 @@ export default function BuildersRisk() {
               />
             </div>
             
-            {/* Floating Badge */}
             <motion.div
               {...scaleIn}
               viewport={{ once: true }}

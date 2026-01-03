@@ -8,7 +8,6 @@ export default function Footer() {
     <footer className="bg-slate-900 text-white py-16">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
-          {/* Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-4">
               <img 
@@ -24,7 +23,6 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Quick Links */}
           <div>
             <h4 className="font-semibold text-lg mb-4">Services</h4>
             <ul className="space-y-2 text-slate-400">
@@ -36,7 +34,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Coverage Types */}
           <div>
             <h4 className="font-semibold text-lg mb-4">Coverage Types</h4>
             <ul className="space-y-2 text-slate-400">
@@ -48,7 +45,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
           <div>
             <h4 className="font-semibold text-lg mb-4">Contact Us</h4>
             <ul className="space-y-3 text-slate-400">
@@ -83,7 +79,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar */}
         <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
           <div>© {new Date().getFullYear()} Trinity Insurance. All rights reserved.</div>
           <div className="flex gap-6">

@@ -1,8 +1,4 @@
-// Public site configuration
-// These can be displayed publicly but should be configurable via environment variables
-
 export const siteConfig = {
-  // Contact Information (public-facing)
   contact: {
     office: {
       address: process.env.NEXT_PUBLIC_OFFICE_ADDRESS || '4429 Hollywood Blvd #3637',
@@ -16,14 +12,12 @@ export const siteConfig = {
     },
     email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'tguido@trinityinv.net',
   },
-  // Site metadata
   company: {
     name: 'Trinity Insurance',
     yearsExperience: 50,
   },
 };
 
-// Helper function to format full address
 export const getFullAddress = () => {
   const { office } = siteConfig.contact;
   return `${office.address}\n${office.city}, ${office.state} ${office.zip}`;

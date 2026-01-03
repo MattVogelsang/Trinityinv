@@ -78,7 +78,6 @@ export default function ContactForm() {
     <section className="py-24 bg-slate-50" id="contact">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Left Column - Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -93,7 +92,6 @@ export default function ContactForm() {
               with a personalized quote within 24 hours.
             </p>
 
-            {/* Contact Details */}
             <div className="space-y-6 mb-8">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center flex-shrink-0">
@@ -141,7 +139,6 @@ export default function ContactForm() {
             </div>
           </motion.div>
 
-          {/* Right Column - Form */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}

@@ -6,7 +6,6 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const { name, email, phone, insurance_type, message } = body;
 
-    // Validate required fields
     if (!name || !email) {
       return NextResponse.json(
         { error: 'Name and email are required' },
@@ -14,21 +13,18 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Create transporter using Gmail SMTP
-    // You'll need to set up an App Password in Gmail settings
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: process.env.GMAIL_USER, // Your Gmail address
-        pass: process.env.GMAIL_APP_PASSWORD, // Gmail App Password
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_APP_PASSWORD,
       },
     });
 
-    // Email content
     const mailOptions = {
       from: process.env.GMAIL_USER,
-      to: process.env.CONTACT_EMAIL || process.env.GMAIL_USER, // Where to send the form submission
-      replyTo: email, // So you can reply directly to the customer
+      to: process.env.CONTACT_EMAIL || process.env.GMAIL_USER,
+      replyTo: email,
       subject: `New Quote Request from ${name} - Trinity Insurance`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -55,7 +51,6 @@ ${message ? `Message:\n${message}` : ''}
       `.trim(),
     };
 
-    // Send email
     await transporter.sendMail(mailOptions);
 
     return NextResponse.json(

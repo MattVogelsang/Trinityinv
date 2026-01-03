@@ -1,5 +1,3 @@
-// Image URLs and assets
-
 export const images = {
   logo: 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6952fe2c6d8839751d52272c/e73638880_TILogo.png',
   heroBackground: 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6952fe2c6d8839751d52272c/b25d04e76_image.png',

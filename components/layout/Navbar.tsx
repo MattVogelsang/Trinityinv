@@ -42,7 +42,6 @@ export default function Navbar({ onGetQuote }: NavbarProps) {
       >
         <div className="container mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between h-20">
-            {/* Logo */}
             <a href="#" className="flex items-center gap-3">
               <img 
                 src={images.logo}
@@ -54,7 +53,6 @@ export default function Navbar({ onGetQuote }: NavbarProps) {
               </span>
             </a>
 
-            {/* Desktop Nav */}
             <nav className="hidden lg:flex items-center gap-8">
               {navLinks.map((link) => {
                 const isActive = activeSection === link.id;
@@ -81,7 +79,6 @@ export default function Navbar({ onGetQuote }: NavbarProps) {
               })}
             </nav>
 
-            {/* Desktop CTA */}
             <div className="hidden lg:flex items-center gap-4">
               <a 
                 href={`tel:${siteConfig.contact.phone.dade}`}
@@ -100,7 +97,6 @@ export default function Navbar({ onGetQuote }: NavbarProps) {
               </Button>
             </div>
 
-            {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileOpen(!isMobileOpen)}
               className={`lg:hidden p-2 rounded-lg transition-colors ${
@@ -114,11 +110,9 @@ export default function Navbar({ onGetQuote }: NavbarProps) {
         </div>
       </motion.header>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileOpen && (
           <>
-            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -127,7 +121,6 @@ export default function Navbar({ onGetQuote }: NavbarProps) {
               className="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-40 lg:hidden"
             />
 
-            {/* Mobile Menu Panel */}
             <motion.div
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
@@ -136,7 +129,6 @@ export default function Navbar({ onGetQuote }: NavbarProps) {
               className="fixed top-20 right-0 bottom-0 w-80 bg-white shadow-xl z-40 lg:hidden overflow-y-auto"
             >
               <div className="p-6 space-y-6">
-                {/* Mobile Nav Links */}
                 <nav className="space-y-4">
                   {navLinks.map((link) => (
                     <a
@@ -150,7 +142,6 @@ export default function Navbar({ onGetQuote }: NavbarProps) {
                   ))}
                 </nav>
 
-                {/* Mobile Contact */}
                 <div className="pt-6 border-t border-slate-200 space-y-4">
                   <a 
                     href={`tel:${siteConfig.contact.phone.dade}`}

@@ -18,14 +18,12 @@ export default function About() {
     <section className="py-24 bg-white" id="about">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left - Image/Visual */}
           <motion.div
             {...fadeInLeft}
             viewport={{ once: true }}
             className="relative"
           >
             <div className="relative">
-              {/* Main Image */}
               <div className="rounded-2xl overflow-hidden">
                 <img 
                   src={images.about}
@@ -34,7 +32,6 @@ export default function About() {
                 />
               </div>
 
-              {/* Floating Card */}
               <motion.div
                 {...scaleIn}
                 viewport={{ once: true }}
@@ -47,12 +44,10 @@ export default function About() {
                 </div>
               </motion.div>
 
-              {/* Decorative Element */}
               <div className="absolute -top-4 -left-4 w-24 h-24 bg-slate-100 rounded-2xl -z-10" />
             </div>
           </motion.div>
 
-          {/* Right - Content */}
           <motion.div
             {...fadeInRight}
             viewport={{ once: true }}
@@ -77,7 +72,6 @@ export default function About() {
               </p>
             </div>
 
-            {/* Stats Grid */}
             <div className="grid grid-cols-2 gap-4">
               {stats.map((stat, index) => (
                 <motion.div
