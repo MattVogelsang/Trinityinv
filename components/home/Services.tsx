@@ -21,7 +21,7 @@ export default function Services({ onServiceClick }: ServicesProps) {
           className="text-center max-w-4xl mx-auto mb-20"
         >
           <span className="text-blue-600 font-semibold text-4xl md:text-5xl uppercase tracking-wider">Our Services</span>
-          <h2 className="text-12xl md:text-15xl lg:text-18xl font-bold text-slate-900 mb-6 leading-tight mt-3">
+          <h2 className="text-6xl md:text-7xl lg:text-8xl font-bold text-slate-900 mb-6 leading-tight mt-3">
             Insurance Solutions for Every Need
           </h2>
           <p className="text-slate-600 text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed">
