@@ -18,7 +18,7 @@ export default function Footer() {
               <span className="text-xl font-bold">Trinity Insurance</span>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed mb-6">
-              Over 50 years of experience providing comprehensive insurance solutions 
+              Over 20 years of experience providing comprehensive insurance solutions 
               with personalized service.
             </p>
           </div>

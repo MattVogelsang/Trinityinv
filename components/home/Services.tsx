@@ -107,13 +107,13 @@ export default function Services({ onServiceClick }: ServicesProps) {
             <div className="flex flex-col flex-1 p-6 text-white">
               <h3 className="text-xl font-bold mb-2">Why Choose Trinity?</h3>
               <p className="text-blue-100 mb-6 leading-relaxed text-sm flex-1">
-                Over 50 years of trusted service with personalized attention and competitive rates.
+                Over 20 years of trusted service with personalized attention and competitive rates.
               </p>
 
               <ul className="space-y-3 mb-6">
                 <div className="flex items-center gap-2 text-sm text-blue-50">
                   <Award className="w-4 h-4 text-amber-300 flex-shrink-0" />
-                  <span>50+ Years Experience</span>
+                  <span>20+ Years Experience</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm text-blue-50">
                   <Users className="w-4 h-4 text-amber-300 flex-shrink-0" />

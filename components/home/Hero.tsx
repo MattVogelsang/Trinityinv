@@ -47,7 +47,7 @@ export default function Hero({ onGetQuote }: HeroProps) {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-sky-400 text-sm font-medium mb-6"
             >
               <Shield className="w-4 h-4" />
-              50+ Years of Trusted Service
+              20+ Years of Trusted Service
             </motion.div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6 tracking-tight">

@@ -7,7 +7,7 @@ import { fadeInLeft, fadeInRight, scaleIn } from '@/lib/animations';
 import { images } from '@/constants/images';
 
 const stats = [
-  { label: 'Years Experience', value: '50+', icon: Award },
+  { label: 'Years Experience', value: '20+', icon: Award },
   { label: 'Happy Clients', value: '5,000+', icon: Users },
   { label: 'Claims Processed', value: '15,000+', icon: Shield },
   { label: 'Avg. Savings', value: '20%', icon: TrendingDown }
@@ -39,7 +39,7 @@ export default function About() {
                 className="absolute -bottom-8 -right-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl p-6 shadow-xl shadow-blue-500/30"
               >
                 <div className="text-slate-900">
-                  <div className="text-4xl font-bold">50+</div>
+                  <div className="text-4xl font-bold">20+</div>
                   <div className="text-sm font-medium opacity-80">Years of Excellence</div>
                 </div>
               </motion.div>
@@ -54,11 +54,11 @@ export default function About() {
           >
             <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">About Us</span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 leading-tight mt-3">
-              Your Trusted Independent Insurance Partner Since 1974
+              Your Trusted Independent Insurance Partner Since 2006
             </h2>
             <div className="space-y-4 text-slate-600 text-lg md:text-xl leading-relaxed mb-8">
               <p>
-                Trinity Insurance's staff has over 50 years of experience to "work for you" — 
+                Trinity Insurance's staff has over 20 years of experience to "work for you" — 
                 lowering your insurance costs and improving your bottom line.
               </p>
               <p>

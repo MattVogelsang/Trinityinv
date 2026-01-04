@@ -14,7 +14,7 @@ export const siteConfig = {
   },
   company: {
     name: 'Trinity Insurance',
-    yearsExperience: 50,
+    yearsExperience: 20,
   },
 };
 
